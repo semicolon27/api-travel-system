@@ -1,8 +1,8 @@
 from app.models import db_models as models
-from app.utils import database as db
-from sqlalchemy import text
+from sqlalchemy.orm import Session
 
-async def get_categories():
-    query = models.t_Category.select()
-    all_get = await db.database.fetch_all(query)
+
+def get_categories(db: Session):
+    # db.query ngga bisa pkai await
+    all_get = db.query(models.t_Category).all()
     return all_get

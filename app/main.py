@@ -6,6 +6,7 @@ from .database import SessionLocal, engine
 
 db_models.metadata.create_all(engine)
 
-app = FastAPI()
+app = FastAPI(debug=True, title="Travel System API")
+# app = FastAPI(debug=False, title="Travel System API", docs_url=None, redoc_url=None, openapi_url=None)
 
 app.include_router(product_router.router)

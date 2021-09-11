@@ -1,5 +1,6 @@
 {
     "python.linting.pylintEnabled": true,
     "terminal.integrated.automationShell.windows": "C:\\Users\\Taufik\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Windows PowerShell\\Windows PowerShell.exe",
-    "python.linting.enabled": true
+    "python.linting.enabled": true,
+    "python.pythonPath": "C:\\Users\\toshiba\\.virtualenvs\\travel-system-api-g_VtMUYM\\Scripts\\python.exe"
 }

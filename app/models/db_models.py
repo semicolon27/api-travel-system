@@ -1,1388 +1,1326 @@
 # coding: utf-8
 from sqlalchemy import Column, MetaData, Table
-from sqlalchemy.sql.sqltypes import String, String, Integer, DateTime, Boolean
+from sqlalchemy.sql.sqltypes import String, Integer, DateTime, Boolean
+from app.database import Base
 
 metadata = MetaData()
 
 
-t_APPO_D = Table(
-    'APPO_D', metadata,
-    Column('VoucherID', String),
-    Column('NoDet', Integer),
-    Column('DType', String),
-    Column('Account', String),
-    Column('DivID', String),
-    Column('Tax', String),
-    Column('Tax1', String),
-    Column('RefVou', String),
-    Column('RefNO', Integer),
-    Column('RefMainDoc', String),
-    Column('RefPreDoc', String),
-    Column('RefDetailDoc', String),
-    Column('RefOthDoc', String),
-    Column('TranDocD', String),
-    Column('RefD1', String),
-    Column('RefD2', String),
-    Column('MerkID', String),
-    Column('ThingType', String),
-    Column('ThingID', String),
-    Column('SerialID', String),
-    Column('Descript', String),
-    Column('Qty', Integer),
-    Column('UnitID', String),
-    Column('UnitPrice', Integer),
-    Column('DiscAmount', Integer),
-    Column('RefCur', String),
-    Column('RefAmount', Integer),
-    Column('Rate', Integer),
-    Column('AmountD', Integer),
-    Column('BalanceD', Integer),
-    Column('TaxAmount', Integer),
-    Column('TaxAmount1', Integer),
-    Column('OthCost', Integer)
-)
+class T_APPO_D(Base):
+    __tablename__ = 'APPO_D'
+    VoucherID = Column(String, primary_key=True)
+    NoDet = Column(Integer)
+    DType = Column(String)
+    Account = Column(String)
+    DivID = Column(String)
+    Tax = Column(String)
+    Tax1 = Column(String)
+    RefVou = Column(String)
+    RefNO = Column(Integer)
+    RefMainDoc = Column(String)
+    RefPreDoc = Column(String)
+    RefDetailDoc = Column(String)
+    RefOthDoc = Column(String)
+    TranDocD = Column(String)
+    RefD1 = Column(String)
+    RefD2 = Column(String)
+    MerkID = Column(String)
+    ThingType = Column(String)
+    ThingID = Column(String)
+    SerialID = Column(String)
+    Descript = Column(String)
+    Qty = Column(Integer)
+    UnitID = Column(String)
+    UnitPrice = Column(Integer)
+    DiscAmount = Column(Integer)
+    RefCur = Column(String)
+    RefAmount = Column(Integer)
+    Rate = Column(Integer)
+    AmountD = Column(Integer)
+    BalanceD = Column(Integer)
+    TaxAmount = Column(Integer)
+    TaxAmount1 = Column(Integer)
+    OthCost = Column(Integer)
 
 
-t_APPO_H = Table(
-    'APPO_H', metadata,
-    Column('VoucherID', String),
-    Column('Account', String),
-    Column('Cur', String),
-    Column('DateDay', DateTime),
-    Column('DateDue', DateTime),
-    Column('TType', String),
-    Column('PartnerName', String),
-    Column('PartnerID', String),
-    Column('Receiver', String),
-    Column('MainDoc', String),
-    Column('PreDoc', String),
-    Column('DetailDoc', String),
-    Column('OthDoc', String),
-    Column('TranDoc', String),
-    Column('Ref1', String),
-    Column('Ref2', String),
-    Column('TotalDiscount', Integer),
-    Column('TotalTax', Integer),
-    Column('TotalTax1', Integer),
-    Column('SubTotal', Integer),
-    Column('GrandTotal', Integer),
-    Column('BalanceH', Integer),
-    Column('TotalAdj', Integer),
-    Column('TotalCost', Integer),
-    Column('Journal', String),
-    Column('RateJou', Integer),
-    Column('Paid', String),
-    Column('HeadJou', String),
-    Column('UserID', String),
-    Column('DateEntry', DateTime),
-    Column('DateUpdate', DateTime),
-    Column('UserLock', String),
-    Column('AddDesc', String)
-)
+class T_APPO_H(Base):
+    __tablename__ = 'APPO_H'
+    VoucherID = Column(String, primary_key=True)
+    Account = Column(String)
+    Cur = Column(String)
+    DateDay = Column(DateTime)
+    DateDue = Column(DateTime)
+    TType = Column(String)
+    PartnerName = Column(String)
+    PartnerID = Column(String)
+    Receiver = Column(String)
+    MainDoc = Column(String)
+    PreDoc = Column(String)
+    DetailDoc = Column(String)
+    OthDoc = Column(String)
+    TranDoc = Column(String)
+    Ref1 = Column(String)
+    Ref2 = Column(String)
+    TotalDiscount = Column(Integer)
+    TotalTax = Column(Integer)
+    TotalTax1 = Column(Integer)
+    SubTotal = Column(Integer)
+    GrandTotal = Column(Integer)
+    BalanceH = Column(Integer)
+    TotalAdj = Column(Integer)
+    TotalCost = Column(Integer)
+    Journal = Column(String)
+    RateJou = Column(Integer)
+    Paid = Column(String)
+    HeadJou = Column(String)
+    UserID = Column(String)
+    DateEntry = Column(DateTime)
+    DateUpdate = Column(DateTime)
+    UserLock = Column(String)
+    AddDesc = Column(String)
 
 
-t_APProduct = Table(
-    'APProduct', metadata,
-    Column('Item_ID_NV', String),
-    Column('Item_Desc_NV', String),
-    Column('Item_Acc_NV', String)
-)
+class T_APProduct(Base):
+    __tablename__ = 'APProduct'
+    Item_ID_NV = Column(String, primary_key=True)
+    Item_Desc_NV = Column(String)
+    Item_Acc_NV = Column(String)
 
 
-t_APVou_D = Table(
-    'APVou_D', metadata,
-    Column('VoucherID', String),
-    Column('NoDet', Integer),
-    Column('DType', String),
-    Column('Account', String),
-    Column('DivID', String),
-    Column('Tax', String),
-    Column('Tax1', String),
-    Column('RefVou', String),
-    Column('RefNO', Integer),
-    Column('RefMainDoc', String),
-    Column('RefPreDoc', String),
-    Column('RefDetailDoc', String),
-    Column('RefOthDoc', String),
-    Column('TranDocD', String),
-    Column('RefD1', String),
-    Column('RefD2', String),
-    Column('MerkID', String),
-    Column('ThingType', String),
-    Column('ThingID', String),
-    Column('SerialID', String),
-    Column('Descript', String),
-    Column('Qty', Integer),
-    Column('UnitID', String),
-    Column('UnitPrice', Integer),
-    Column('DiscAmount', Integer),
-    Column('RefCur', String),
-    Column('RefAmount', Integer),
-    Column('Rate', Integer),
-    Column('AmountD', Integer),
-    Column('BalanceD', Integer),
-    Column('TaxAmount', Integer),
-    Column('TaxAmount1', Integer),
-    Column('OthCost', Integer)
-)
+class T_APVou_D(Base):
+    __tablename__ = 'APVou_D'
+    VoucherID = Column(String, primary_key=True)
+    NoDet = Column(Integer)
+    DType = Column(String)
+    Account = Column(String)
+    DivID = Column(String)
+    Tax = Column(String)
+    Tax1 = Column(String)
+    RefVou = Column(String)
+    RefNO = Column(Integer)
+    RefMainDoc = Column(String)
+    RefPreDoc = Column(String)
+    RefDetailDoc = Column(String)
+    RefOthDoc = Column(String)
+    TranDocD = Column(String)
+    RefD1 = Column(String)
+    RefD2 = Column(String)
+    MerkID = Column(String)
+    ThingType = Column(String)
+    ThingID = Column(String)
+    SerialID = Column(String)
+    Descript = Column(String)
+    Qty = Column(Integer)
+    UnitID = Column(String)
+    UnitPrice = Column(Integer)
+    DiscAmount = Column(Integer)
+    RefCur = Column(String)
+    RefAmount = Column(Integer)
+    Rate = Column(Integer)
+    AmountD = Column(Integer)
+    BalanceD = Column(Integer)
+    TaxAmount = Column(Integer)
+    TaxAmount1 = Column(Integer)
+    OthCost = Column(Integer)
 
 
-t_APVou_D1 = Table(
-    'APVou_D1', metadata,
-    Column('VoucherID', String),
-    Column('NoDet', Integer),
-    Column('DType1', String),
-    Column('Account1', String),
-    Column('RefVou1', String),
-    Column('RefNO1', Integer),
-    Column('RefMainDoc1', String),
-    Column('RefPreDoc1', String),
-    Column('RefDetailDoc1', String),
-    Column('RefOthDoc1', String),
-    Column('TranDocD1', String),
-    Column('RefD11', String),
-    Column('RefD21', String),
-    Column('MerkID1', String),
-    Column('ThingType1', String),
-    Column('ThingID1', String),
-    Column('SerialID1', String),
-    Column('Descript1', String),
-    Column('Qty1', Integer),
-    Column('UnitID1', String),
-    Column('UnitPrice1', Integer),
-    Column('DiscAmount1', Integer),
-    Column('RefCur1', String),
-    Column('RefAmount1', Integer),
-    Column('Rate1', Integer),
-    Column('AmountD1', Integer),
-    Column('BalanceD1', Integer),
-    Column('TaxAmount1', Integer),
-    Column('TaxAmount11', Integer),
-    Column('OthCost1', Integer)
-)
+class T_APVou_D1(Base):
+    __tablename__ = 'APVou_D1'
+    VoucherID = Column(String, primary_key=True)
+    NoDet = Column(Integer)
+    DType1 = Column(String)
+    Account1 = Column(String)
+    RefVou1 = Column(String)
+    RefNO1 = Column(Integer)
+    RefMainDoc1 = Column(String)
+    RefPreDoc1 = Column(String)
+    RefDetailDoc1 = Column(String)
+    RefOthDoc1 = Column(String)
+    TranDocD1 = Column(String)
+    RefD11 = Column(String)
+    RefD21 = Column(String)
+    MerkID1 = Column(String)
+    ThingType1 = Column(String)
+    ThingID1 = Column(String)
+    SerialID1 = Column(String)
+    Descript1 = Column(String)
+    Qty1 = Column(Integer)
+    UnitID1 = Column(String)
+    UnitPrice1 = Column(Integer)
+    DiscAmount1 = Column(Integer)
+    RefCur1 = Column(String)
+    RefAmount1 = Column(Integer)
+    Rate1 = Column(Integer)
+    AmountD1 = Column(Integer)
+    BalanceD1 = Column(Integer)
+    TaxAmount1 = Column(Integer)
+    TaxAmount11 = Column(Integer)
+    OthCost1 = Column(Integer)
 
 
-t_APVou_H = Table(
-    'APVou_H', metadata,
-    Column('VoucherID', String),
-    Column('Account', String),
-    Column('Cur', String),
-    Column('DateDay', DateTime),
-    Column('DateDue', DateTime),
-    Column('TType', String),
-    Column('PartnerName', String),
-    Column('PartnerID', String),
-    Column('Receiver', String),
-    Column('MainDoc', String),
-    Column('PreDoc', String),
-    Column('DetailDoc', String),
-    Column('OthDoc', String),
-    Column('TranDoc', String),
-    Column('Ref1', String),
-    Column('Ref2', String),
-    Column('TotalDiscount', Integer),
-    Column('TotalTax', Integer),
-    Column('TotalTax1', Integer),
-    Column('SubTotal', Integer),
-    Column('GrandTotal', Integer),
-    Column('BalanceH', Integer),
-    Column('TotalAdj', Integer),
-    Column('TotalCost', Integer),
-    Column('Journal', String),
-    Column('RateJou', Integer),
-    Column('Paid', String),
-    Column('HeadJou', String),
-    Column('UserID', String),
-    Column('DateEntry', DateTime),
-    Column('DateUpdate', DateTime),
-    Column('UserLock', String),
-    Column('AddDesc', String)
-)
+class T_APVou_H(Base):
+    __tablename__ = 'APVou_H'
+    VoucherID = Column(String, primary_key=True)
+    Account = Column(String)
+    Cur = Column(String)
+    DateDay = Column(DateTime)
+    DateDue = Column(DateTime)
+    TType = Column(String)
+    PartnerName = Column(String)
+    PartnerID = Column(String)
+    Receiver = Column(String)
+    MainDoc = Column(String)
+    PreDoc = Column(String)
+    DetailDoc = Column(String)
+    OthDoc = Column(String)
+    TranDoc = Column(String)
+    Ref1 = Column(String)
+    Ref2 = Column(String)
+    TotalDiscount = Column(Integer)
+    TotalTax = Column(Integer)
+    TotalTax1 = Column(Integer)
+    SubTotal = Column(Integer)
+    GrandTotal = Column(Integer)
+    BalanceH = Column(Integer)
+    TotalAdj = Column(Integer)
+    TotalCost = Column(Integer)
+    Journal = Column(String)
+    RateJou = Column(Integer)
+    Paid = Column(String)
+    HeadJou = Column(String)
+    UserID = Column(String)
+    DateEntry = Column(DateTime)
+    DateUpdate = Column(DateTime)
+    UserLock = Column(String)
+    AddDesc = Column(String)
 
 
-t_APVou_H1 = Table(
-    'APVou_H1', metadata,
-    Column('VoucherID', String),
-    Column('POno', String),
-    Column('PODate', String),
-    Column('MainDoc1', String),
-    Column('PreDoc1', String),
-    Column('DetailDoc1', String),
-    Column('OthDoc1', String),
-    Column('Ref11', String),
-    Column('Ref21', String),
-    Column('TotalTax1', Integer),
-    Column('TotalTax11', Integer),
-    Column('GrandTotal1', Integer),
-    Column('BalanceH1', Integer),
-    Column('Paid1', String)
-)
+class T_APVou_H1(Base):
+    __tablename__ = 'APVou_H1'
+    VoucherID = Column(String, primary_key=True)
+    POno = Column(String)
+    PODate = Column(String)
+    MainDoc1 = Column(String)
+    PreDoc1 = Column(String)
+    DetailDoc1 = Column(String)
+    OthDoc1 = Column(String)
+    Ref11 = Column(String)
+    Ref21 = Column(String)
+    TotalTax1 = Column(Integer)
+    TotalTax11 = Column(Integer)
+    GrandTotal1 = Column(Integer)
+    BalanceH1 = Column(Integer)
+    Paid1 = Column(String)
 
 
-t_ARVou_D = Table(
-    'ARVou_D', metadata,
-    Column('VoucherID', String),
-    Column('NoDet', Integer),
-    Column('DType', String),
-    Column('Account', String),
-    Column('DivID', String),
-    Column('Tax', String),
-    Column('Tax1', String),
-    Column('RefVou', String),
-    Column('RefNO', Integer),
-    Column('RefMainDoc', String),
-    Column('RefPreDoc', String),
-    Column('RefDetailDoc', String),
-    Column('RefOthDoc', String),
-    Column('TranDocD', String),
-    Column('RefD1', String),
-    Column('RefD2', String),
-    Column('MerkID', String),
-    Column('ThingType', String),
-    Column('ThingID', String),
-    Column('SerialID', String),
-    Column('Descript', String),
-    Column('Qty', Integer),
-    Column('UnitID', String),
-    Column('UnitPrice', Integer),
-    Column('DiscAmount', Integer),
-    Column('RefCur', String),
-    Column('RefAmount', Integer),
-    Column('Rate', Integer),
-    Column('AmountD', Integer),
-    Column('BalanceD', Integer),
-    Column('TaxAmount', Integer),
-    Column('TaxAmount1', Integer),
-    Column('OthCost', Integer)
-)
+class T_ARVou_D(Base):
+    __tablename__ = 'ARVou_D'
+    VoucherID = Column(String, primary_key=True)
+    NoDet = Column(Integer)
+    DType = Column(String)
+    Account = Column(String)
+    DivID = Column(String)
+    Tax = Column(String)
+    Tax1 = Column(String)
+    RefVou = Column(String)
+    RefNO = Column(Integer)
+    RefMainDoc = Column(String)
+    RefPreDoc = Column(String)
+    RefDetailDoc = Column(String)
+    RefOthDoc = Column(String)
+    TranDocD = Column(String)
+    RefD1 = Column(String)
+    RefD2 = Column(String)
+    MerkID = Column(String)
+    ThingType = Column(String)
+    ThingID = Column(String)
+    SerialID = Column(String)
+    Descript = Column(String)
+    Qty = Column(Integer)
+    UnitID = Column(String)
+    UnitPrice = Column(Integer)
+    DiscAmount = Column(Integer)
+    RefCur = Column(String)
+    RefAmount = Column(Integer)
+    Rate = Column(Integer)
+    AmountD = Column(Integer)
+    BalanceD = Column(Integer)
+    TaxAmount = Column(Integer)
+    TaxAmount1 = Column(Integer)
+    OthCost = Column(Integer)
 
 
-t_ARVou_D1 = Table(
-    'ARVou_D1', metadata,
-    Column('VoucherID', String),
-    Column('NoDet', Integer),
-    Column('DType1', String),
-    Column('Account1', String),
-    Column('RefVou1', String),
-    Column('RefNO1', Integer),
-    Column('RefMainDoc1', String),
-    Column('RefPreDoc1', String),
-    Column('RefDetailDoc1', String),
-    Column('RefOthDoc1', String),
-    Column('TranDocD1', String),
-    Column('RefD11', String),
-    Column('RefD21', String),
-    Column('MerkID1', String),
-    Column('ThingType1', String),
-    Column('ThingID1', String),
-    Column('SerialID1', String),
-    Column('Descript1', String),
-    Column('Qty1', Integer),
-    Column('UnitID1', String),
-    Column('UnitPrice1', Integer),
-    Column('DiscAmount1', Integer),
-    Column('RefCur1', String),
-    Column('RefAmount1', Integer),
-    Column('Rate1', Integer),
-    Column('AmountD1', Integer),
-    Column('BalanceD1', Integer),
-    Column('TaxAmount1', Integer),
-    Column('TaxAmount11', Integer),
-    Column('OthCost1', Integer)
-)
+class T_ARVou_D1(Base):
+    __tablename__ = 'ARVou_D1'
+    VoucherID = Column(String, primary_key=True)
+    NoDet = Column(Integer)
+    DType1 = Column(String)
+    Account1 = Column(String)
+    RefVou1 = Column(String)
+    RefNO1 = Column(Integer)
+    RefMainDoc1 = Column(String)
+    RefPreDoc1 = Column(String)
+    RefDetailDoc1 = Column(String)
+    RefOthDoc1 = Column(String)
+    TranDocD1 = Column(String)
+    RefD11 = Column(String)
+    RefD21 = Column(String)
+    MerkID1 = Column(String)
+    ThingType1 = Column(String)
+    ThingID1 = Column(String)
+    SerialID1 = Column(String)
+    Descript1 = Column(String)
+    Qty1 = Column(Integer)
+    UnitID1 = Column(String)
+    UnitPrice1 = Column(Integer)
+    DiscAmount1 = Column(Integer)
+    RefCur1 = Column(String)
+    RefAmount1 = Column(Integer)
+    Rate1 = Column(Integer)
+    AmountD1 = Column(Integer)
+    BalanceD1 = Column(Integer)
+    TaxAmount1 = Column(Integer)
+    TaxAmount11 = Column(Integer)
+    OthCost1 = Column(Integer)
 
 
-t_ARVou_H = Table(
-    'ARVou_H', metadata,
-    Column('VoucherID', String),
-    Column('Account', String),
-    Column('Cur', String),
-    Column('DateDay', DateTime),
-    Column('DateDue', DateTime),
-    Column('TType', String),
-    Column('PartnerName', String),
-    Column('PartnerID', String),
-    Column('Receiver', String),
-    Column('MainDoc', String),
-    Column('PreDoc', String),
-    Column('DetailDoc', String),
-    Column('OthDoc', String),
-    Column('TranDoc', String),
-    Column('Ref1', String),
-    Column('Ref2', String),
-    Column('TotalDiscount', Integer),
-    Column('TotalTax', Integer),
-    Column('TotalTax1', Integer),
-    Column('SubTotal', Integer),
-    Column('GrandTotal', Integer),
-    Column('BalanceH', Integer),
-    Column('TotalAdj', Integer),
-    Column('TotalCost', Integer),
-    Column('Journal', String),
-    Column('RateJou', Integer),
-    Column('Paid', String),
-    Column('HeadJou', String),
-    Column('UserID', String),
-    Column('DateEntry', DateTime),
-    Column('DateUpdate', DateTime),
-    Column('UserLock', String),
-    Column('AddDesc', String)
-)
+class T_ARVou_H(Base):
+    __tablename__ = 'ARVou_H'
+    VoucherID = Column(String, primary_key=True)
+    Account = Column(String)
+    Cur = Column(String)
+    DateDay = Column(DateTime)
+    DateDue = Column(DateTime)
+    TType = Column(String)
+    PartnerName = Column(String)
+    PartnerID = Column(String)
+    Receiver = Column(String)
+    MainDoc = Column(String)
+    PreDoc = Column(String)
+    DetailDoc = Column(String)
+    OthDoc = Column(String)
+    TranDoc = Column(String)
+    Ref1 = Column(String)
+    Ref2 = Column(String)
+    TotalDiscount = Column(Integer)
+    TotalTax = Column(Integer)
+    TotalTax1 = Column(Integer)
+    SubTotal = Column(Integer)
+    GrandTotal = Column(Integer)
+    BalanceH = Column(Integer)
+    TotalAdj = Column(Integer)
+    TotalCost = Column(Integer)
+    Journal = Column(String)
+    RateJou = Column(Integer)
+    Paid = Column(String)
+    HeadJou = Column(String)
+    UserID = Column(String)
+    DateEntry = Column(DateTime)
+    DateUpdate = Column(DateTime)
+    UserLock = Column(String)
+    AddDesc = Column(String)
 
 
-t_ARVou_H1 = Table(
-    'ARVou_H1', metadata,
-    Column('VoucherID', String),
-    Column('POno', String),
-    Column('PODate', String),
-    Column('MainDoc1', String),
-    Column('PreDoc1', String),
-    Column('DetailDoc1', String),
-    Column('OthDoc1', String),
-    Column('Ref11', String),
-    Column('Ref21', String),
-    Column('TotalTax1', Integer),
-    Column('TotalTax11', Integer),
-    Column('GrandTotal1', Integer),
-    Column('BalanceH1', Integer),
-    Column('Paid1', String)
-)
+class T_ARVou_H1(Base):
+    __tablename__ = 'ARVou_H1'
+    VoucherID = Column(String, primary_key=True)
+    POno = Column(String)
+    PODate = Column(String)
+    MainDoc1 = Column(String)
+    PreDoc1 = Column(String)
+    DetailDoc1 = Column(String)
+    OthDoc1 = Column(String)
+    Ref11 = Column(String)
+    Ref21 = Column(String)
+    TotalTax1 = Column(Integer)
+    TotalTax11 = Column(Integer)
+    GrandTotal1 = Column(Integer)
+    BalanceH1 = Column(Integer)
+    Paid1 = Column(String)
 
 
-t_Asset = Table(
-    'Asset', metadata,
-    Column('OffCode', String),
-    Column('AssetID', String),
-    Column('Name', String),
-    Column('AssetKindID', String)
-)
+class T_Asset(Base):
+    __tablename__ = 'Asset'
+    OffCode = Column(String, primary_key=True)
+    AssetID = Column(String)
+    Name = Column(String)
+    AssetKindID = Column(String)
 
 
-t_AssetKind = Table(
-    'AssetKind', metadata,
-    Column('AssetKindID', String),
-    Column('Name', String)
-)
+class T_AssetKind(Base):
+    __tablename__ = 'AssetKind'
+    AssetKindID = Column(String, primary_key=True)
+    Name = Column(String)
 
 
-t_Bhs = Table(
-    'Bhs', metadata,
-    Column('captText', String),
-    Column('bhsID', String),
-    Column('ShowText', String)
-)
+class T_Bhs(Base):
+    __tablename__ = 'Bhs'
+    captText = Column(String, primary_key=True)
+    bhsID = Column(String)
+    ShowText = Column(String)
 
 
-t_BranchOffice = Table(
-    'BranchOffice', metadata,
-    Column('OffCode', String),
-    Column('CompanyID', String),
-    Column('CityID', String),
-    Column('name', String)
-)
+class T_BranchOffice(Base):
+    __tablename__ = 'BranchOffice'
+    OffCode = Column(String, primary_key=True)
+    CompanyID = Column(String)
+    CityID = Column(String)
+    name = Column(String)
 
 
-t_CBAdv_D = Table(
-    'CBAdv_D', metadata,
-    Column('VoucherID', String),
-    Column('NoDet', Integer),
-    Column('DType', String),
-    Column('Account', String),
-    Column('DivID', String),
-    Column('Tax', String),
-    Column('Tax1', String),
-    Column('RefVou', String),
-    Column('RefNO', Integer),
-    Column('RefMainDoc', String),
-    Column('RefPreDoc', String),
-    Column('RefDetailDoc', String),
-    Column('RefOthDoc', String),
-    Column('TranDocD', String),
-    Column('RefD1', String),
-    Column('RefD2', String),
-    Column('MerkID', String),
-    Column('ThingType', String),
-    Column('ThingID', String),
-    Column('SerialID', String),
-    Column('Descript', String),
-    Column('Qty', Integer),
-    Column('UnitID', String),
-    Column('UnitPrice', Integer),
-    Column('DiscAmount', Integer),
-    Column('RefCur', String),
-    Column('RefAmount', Integer),
-    Column('Rate', Integer),
-    Column('AmountD', Integer),
-    Column('BalanceD', Integer),
-    Column('TaxAmount', Integer),
-    Column('TaxAmount1', Integer),
-    Column('OthCost', Integer)
-)
+class T_CBAdv_D(Base):
+    __tablename__ = 'CBAdv_D'
+    VoucherID = Column(String, primary_key=True)
+    NoDet = Column(Integer)
+    DType = Column(String)
+    Account = Column(String)
+    DivID = Column(String)
+    Tax = Column(String)
+    Tax1 = Column(String)
+    RefVou = Column(String)
+    RefNO = Column(Integer)
+    RefMainDoc = Column(String)
+    RefPreDoc = Column(String)
+    RefDetailDoc = Column(String)
+    RefOthDoc = Column(String)
+    TranDocD = Column(String)
+    RefD1 = Column(String)
+    RefD2 = Column(String)
+    MerkID = Column(String)
+    ThingType = Column(String)
+    ThingID = Column(String)
+    SerialID = Column(String)
+    Descript = Column(String)
+    Qty = Column(Integer)
+    UnitID = Column(String)
+    UnitPrice = Column(Integer)
+    DiscAmount = Column(Integer)
+    RefCur = Column(String)
+    RefAmount = Column(Integer)
+    Rate = Column(Integer)
+    AmountD = Column(Integer)
+    BalanceD = Column(Integer)
+    TaxAmount = Column(Integer)
+    TaxAmount1 = Column(Integer)
+    OthCost = Column(Integer)
 
 
-t_CBAdv_D1 = Table(
-    'CBAdv_D1', metadata,
-    Column('VoucherID', String),
-    Column('NoDet', Integer),
-    Column('DType1', String),
-    Column('Account1', String),
-    Column('RefVou1', String),
-    Column('RefNO1', Integer),
-    Column('RefMainDoc1', String),
-    Column('RefPreDoc1', String),
-    Column('RefDetailDoc1', String),
-    Column('RefOthDoc1', String),
-    Column('TranDocD1', String),
-    Column('RefD11', String),
-    Column('RefD21', String),
-    Column('MerkID1', String),
-    Column('ThingType1', String),
-    Column('ThingID1', String),
-    Column('SerialID1', String),
-    Column('Descript1', String),
-    Column('Qty1', Integer),
-    Column('UnitID1', String),
-    Column('UnitPrice1', Integer),
-    Column('DiscAmount1', Integer),
-    Column('RefCur1', String),
-    Column('RefAmount1', Integer),
-    Column('Rate1', Integer),
-    Column('AmountD1', Integer),
-    Column('BalanceD1', Integer),
-    Column('TaxAmount1', Integer),
-    Column('TaxAmount11', Integer),
-    Column('OthCost1', Integer)
-)
+class T_CBAdv_D1(Base):
+    __tablename__ = 'CBAdv_D1'
+    VoucherID = Column(String, primary_key=True)
+    NoDet = Column(Integer)
+    DType1 = Column(String)
+    Account1 = Column(String)
+    RefVou1 = Column(String)
+    RefNO1 = Column(Integer)
+    RefMainDoc1 = Column(String)
+    RefPreDoc1 = Column(String)
+    RefDetailDoc1 = Column(String)
+    RefOthDoc1 = Column(String)
+    TranDocD1 = Column(String)
+    RefD11 = Column(String)
+    RefD21 = Column(String)
+    MerkID1 = Column(String)
+    ThingType1 = Column(String)
+    ThingID1 = Column(String)
+    SerialID1 = Column(String)
+    Descript1 = Column(String)
+    Qty1 = Column(Integer)
+    UnitID1 = Column(String)
+    UnitPrice1 = Column(Integer)
+    DiscAmount1 = Column(Integer)
+    RefCur1 = Column(String)
+    RefAmount1 = Column(Integer)
+    Rate1 = Column(Integer)
+    AmountD1 = Column(Integer)
+    BalanceD1 = Column(Integer)
+    TaxAmount1 = Column(Integer)
+    TaxAmount11 = Column(Integer)
+    OthCost1 = Column(Integer)
 
 
-t_CBAdv_H = Table(
-    'CBAdv_H', metadata,
-    Column('VoucherID', String),
-    Column('Account', String),
-    Column('Cur', String),
-    Column('DateDay', DateTime),
-    Column('DateDue', DateTime),
-    Column('TType', String),
-    Column('PartnerName', String),
-    Column('PartnerID', String),
-    Column('Receiver', String),
-    Column('MainDoc', String),
-    Column('PreDoc', String),
-    Column('DetailDoc', String),
-    Column('OthDoc', String),
-    Column('TranDoc', String),
-    Column('Ref1', String),
-    Column('Ref2', String),
-    Column('TotalDiscount', Integer),
-    Column('TotalTax', Integer),
-    Column('TotalTax1', Integer),
-    Column('SubTotal', Integer),
-    Column('GrandTotal', Integer),
-    Column('BalanceH', Integer),
-    Column('TotalAdj', Integer),
-    Column('TotalCost', Integer),
-    Column('Journal', String),
-    Column('RateJou', Integer),
-    Column('Paid', String),
-    Column('HeadJou', String),
-    Column('UserID', String),
-    Column('DateEntry', DateTime),
-    Column('DateUpdate', DateTime),
-    Column('UserLock', String),
-    Column('AddDesc', String)
-)
+class T_CBAdv_H(Base):
+    __tablename__ = 'CBAdv_H'
+    VoucherID = Column(String, primary_key=True)
+    Account = Column(String)
+    Cur = Column(String)
+    DateDay = Column(DateTime)
+    DateDue = Column(DateTime)
+    TType = Column(String)
+    PartnerName = Column(String)
+    PartnerID = Column(String)
+    Receiver = Column(String)
+    MainDoc = Column(String)
+    PreDoc = Column(String)
+    DetailDoc = Column(String)
+    OthDoc = Column(String)
+    TranDoc = Column(String)
+    Ref1 = Column(String)
+    Ref2 = Column(String)
+    TotalDiscount = Column(Integer)
+    TotalTax = Column(Integer)
+    TotalTax1 = Column(Integer)
+    SubTotal = Column(Integer)
+    GrandTotal = Column(Integer)
+    BalanceH = Column(Integer)
+    TotalAdj = Column(Integer)
+    TotalCost = Column(Integer)
+    Journal = Column(String)
+    RateJou = Column(Integer)
+    Paid = Column(String)
+    HeadJou = Column(String)
+    UserID = Column(String)
+    DateEntry = Column(DateTime)
+    DateUpdate = Column(DateTime)
+    UserLock = Column(String)
+    AddDesc = Column(String)
 
 
-t_CBBalance = Table(
-    'CBBalance', metadata,
-    Column('ThingId', String),
-    Column('PeriodID', String),
-    Column('Out', Integer),
-    Column('In', Integer),
-    Column('BegBalance', Integer),
-    Column('EndBalance', Integer)
-)
+class T_CBBalance(Base):
+    __tablename__ = 'CBBalance'
+    ThingId = Column(String, primary_key=True)
+    PeriodID = Column(String)
+    Out = Column(Integer)
+    In = Column(Integer)
+    BegBalance = Column(Integer)
+    EndBalance = Column(Integer)
 
 
-t_CBVou_D = Table(
-    'CBVou_D', metadata,
-    Column('VoucherID', String),
-    Column('NoDet', Integer),
-    Column('DType', String),
-    Column('Account', String),
-    Column('DivID', String),
-    Column('Tax', String),
-    Column('Tax1', String),
-    Column('RefVou', String),
-    Column('RefNO', Integer),
-    Column('RefMainDoc', String),
-    Column('RefPreDoc', String),
-    Column('RefDetailDoc', String),
-    Column('RefOthDoc', String),
-    Column('TranDocD', String),
-    Column('RefD1', String),
-    Column('RefD2', String),
-    Column('MerkID', String),
-    Column('ThingType', String),
-    Column('ThingID', String),
-    Column('SerialID', String),
-    Column('Descript', String),
-    Column('Qty', Integer),
-    Column('UnitID', String),
-    Column('UnitPrice', Integer),
-    Column('DiscAmount', Integer),
-    Column('RefCur', String),
-    Column('RefAmount', Integer),
-    Column('Rate', Integer),
-    Column('AmountD', Integer),
-    Column('BalanceD', Integer),
-    Column('TaxAmount', Integer),
-    Column('TaxAmount1', Integer),
-    Column('OthCost', Integer)
-)
+class T_CBVou_D(Base):
+    __tablename__ = 'CBVou_D'
+    VoucherID = Column(String, primary_key=True)
+    NoDet = Column(Integer)
+    DType = Column(String)
+    Account = Column(String)
+    DivID = Column(String)
+    Tax = Column(String)
+    Tax1 = Column(String)
+    RefVou = Column(String)
+    RefNO = Column(Integer)
+    RefMainDoc = Column(String)
+    RefPreDoc = Column(String)
+    RefDetailDoc = Column(String)
+    RefOthDoc = Column(String)
+    TranDocD = Column(String)
+    RefD1 = Column(String)
+    RefD2 = Column(String)
+    MerkID = Column(String)
+    ThingType = Column(String)
+    ThingID = Column(String)
+    SerialID = Column(String)
+    Descript = Column(String)
+    Qty = Column(Integer)
+    UnitID = Column(String)
+    UnitPrice = Column(Integer)
+    DiscAmount = Column(Integer)
+    RefCur = Column(String)
+    RefAmount = Column(Integer)
+    Rate = Column(Integer)
+    AmountD = Column(Integer)
+    BalanceD = Column(Integer)
+    TaxAmount = Column(Integer)
+    TaxAmount1 = Column(Integer)
+    OthCost = Column(Integer)
 
 
-t_CBVou_D1 = Table(
-    'CBVou_D1', metadata,
-    Column('VoucherID', String),
-    Column('NoDet', Integer),
-    Column('DType1', String),
-    Column('Account1', String),
-    Column('RefVou1', String),
-    Column('RefNO1', Integer),
-    Column('RefMainDoc1', String),
-    Column('RefPreDoc1', String),
-    Column('RefDetailDoc1', String),
-    Column('RefOthDoc1', String),
-    Column('TranDocD1', String),
-    Column('RefD11', String),
-    Column('RefD21', String),
-    Column('MerkID1', String),
-    Column('ThingType1', String),
-    Column('ThingID1', String),
-    Column('SerialID1', String),
-    Column('Descript1', String),
-    Column('Qty1', Integer),
-    Column('UnitID1', String),
-    Column('UnitPrice1', Integer),
-    Column('DiscAmount1', Integer),
-    Column('RefCur1', String),
-    Column('RefAmount1', Integer),
-    Column('Rate1', Integer),
-    Column('AmountD1', Integer),
-    Column('BalanceD1', Integer),
-    Column('TaxAmount1', Integer),
-    Column('TaxAmount11', Integer),
-    Column('OthCost1', Integer)
-)
+class T_CBVou_D1(Base):
+    __tablename__ = 'CBVou_D1'
+    VoucherID = Column(String, primary_key=True)
+    NoDet = Column(Integer)
+    DType1 = Column(String)
+    Account1 = Column(String)
+    RefVou1 = Column(String)
+    RefNO1 = Column(Integer)
+    RefMainDoc1 = Column(String)
+    RefPreDoc1 = Column(String)
+    RefDetailDoc1 = Column(String)
+    RefOthDoc1 = Column(String)
+    TranDocD1 = Column(String)
+    RefD11 = Column(String)
+    RefD21 = Column(String)
+    MerkID1 = Column(String)
+    ThingType1 = Column(String)
+    ThingID1 = Column(String)
+    SerialID1 = Column(String)
+    Descript1 = Column(String)
+    Qty1 = Column(Integer)
+    UnitID1 = Column(String)
+    UnitPrice1 = Column(Integer)
+    DiscAmount1 = Column(Integer)
+    RefCur1 = Column(String)
+    RefAmount1 = Column(Integer)
+    Rate1 = Column(Integer)
+    AmountD1 = Column(Integer)
+    BalanceD1 = Column(Integer)
+    TaxAmount1 = Column(Integer)
+    TaxAmount11 = Column(Integer)
+    OthCost1 = Column(Integer)
 
 
-t_CBVou_H = Table(
-    'CBVou_H', metadata,
-    Column('VoucherID', String),
-    Column('Account', String),
-    Column('Cur', String),
-    Column('DateDay', DateTime),
-    Column('DateDue', DateTime),
-    Column('TType', String),
-    Column('PartnerName', String),
-    Column('PartnerID', String),
-    Column('Receiver', String),
-    Column('MainDoc', String),
-    Column('PreDoc', String),
-    Column('DetailDoc', String),
-    Column('OthDoc', String),
-    Column('TranDoc', String),
-    Column('Ref1', String),
-    Column('Ref2', String),
-    Column('TotalDiscount', Integer),
-    Column('TotalTax', Integer),
-    Column('TotalTax1', Integer),
-    Column('SubTotal', Integer),
-    Column('GrandTotal', Integer),
-    Column('BalanceH', Integer),
-    Column('TotalAdj', Integer),
-    Column('TotalCost', Integer),
-    Column('Journal', String),
-    Column('RateJou', Integer),
-    Column('Paid', String),
-    Column('HeadJou', String),
-    Column('UserID', String),
-    Column('DateEntry', DateTime),
-    Column('DateUpdate', DateTime),
-    Column('UserLock', String),
-    Column('AddDesc', String)
-)
+class T_CBVou_H(Base):
+    __tablename__ = 'CBVou_H'
+    VoucherID = Column(String, primary_key=True)
+    Account = Column(String)
+    Cur = Column(String)
+    DateDay = Column(DateTime)
+    DateDue = Column(DateTime)
+    TType = Column(String)
+    PartnerName = Column(String)
+    PartnerID = Column(String)
+    Receiver = Column(String)
+    MainDoc = Column(String)
+    PreDoc = Column(String)
+    DetailDoc = Column(String)
+    OthDoc = Column(String)
+    TranDoc = Column(String)
+    Ref1 = Column(String)
+    Ref2 = Column(String)
+    TotalDiscount = Column(Integer)
+    TotalTax = Column(Integer)
+    TotalTax1 = Column(Integer)
+    SubTotal = Column(Integer)
+    GrandTotal = Column(Integer)
+    BalanceH = Column(Integer)
+    TotalAdj = Column(Integer)
+    TotalCost = Column(Integer)
+    Journal = Column(String)
+    RateJou = Column(Integer)
+    Paid = Column(String)
+    HeadJou = Column(String)
+    UserID = Column(String)
+    DateEntry = Column(DateTime)
+    DateUpdate = Column(DateTime)
+    UserLock = Column(String)
+    AddDesc = Column(String)
 
 
-t_Category = Table(
-    'Category', metadata,
-    Column('CategoryID', String),
-    Column('CategoryDesc', String)
-)
+class T_Category(Base):
+    __tablename__ = 'Category'
+    CategoryID = Column(String, primary_key=True)
+    CategoryDesc = Column(String)
 
 
-t_City = Table(
-    'City', metadata,
-    Column('CityID', String),
-    Column('Name', String),
-    Column('countryID', String),
-    Column('locKind', String)
-)
+class T_City(Base):
+    __tablename__ = 'City'
+    CityID = Column(String, primary_key=True)
+    Name = Column(String)
+    countryID = Column(String)
+    locKind = Column(String)
 
 
-t_Company = Table(
-    'Company', metadata,
-    Column('CompanyID', String),
-    Column('CompanyName', String),
-    Column('CompanyName1', String),
-    Column('CompanyHead', String),
-    Column('CompanyAddress', String),
-    Column('CompanyPhone', String)
-)
+class T_Company(Base):
+    __tablename__ = 'Company'
+    CompanyID = Column(String, primary_key=True)
+    CompanyName = Column(String)
+    CompanyName1 = Column(String)
+    CompanyHead = Column(String)
+    CompanyAddress = Column(String)
+    CompanyPhone = Column(String)
 
 
-t_Country = Table(
-    'Country', metadata,
-    Column('CountryID', String),
-    Column('Name', String)
-)
+class T_Country(Base):
+    __tablename__ = 'Country'
+    CountryID = Column(String, primary_key=True)
+    Name = Column(String)
 
 
-t_Curency = Table(
-    'Curency', metadata,
-    Column('Cur', String),
-    Column('Name', String),
-    Column('CountryID', String),
-    Column('Rate', Integer),
-    Column('Mark', String)
-)
+class T_Curency(Base):
+    __tablename__ = 'Curency'
+    Cur = Column(String, primary_key=True)
+    Name = Column(String)
+    CountryID = Column(String)
+    Rate = Column(Integer)
+    Mark = Column(String)
 
 
-t_Customer = Table(
-    'Customer', metadata,
-    Column('PartnerID', String),
-    Column('PartnerName', String),
-    Column('Ident', String),
-    Column('OrgType', String),
-    Column('Address1', String),
-    Column('Address2', String),
-    Column('Address3', String),
-    Column('Address4', String),
-    Column('CityID', String),
-    Column('CountryID', String),
-    Column('ZipCode', String),
-    Column('Phone1', String),
-    Column('Phone2', String),
-    Column('Fax1', String),
-    Column('Fax2', String),
-    Column('Email', String),
-    Column('Contact1', String),
-    Column('Contact2', String),
-    Column('NPWP', String),
-    Column('NPWPdate', DateTime),
-    Column('NPWPKukuh', String),
-    Column('NPWPdateKukuh', DateTime),
-    Column('NPWP1', String),
-    Column('NPWPdate1', DateTime),
-    Column('NPWPKukuh1', String),
-    Column('NPWPdateKukuh1', DateTime),
-    Column('APITU', String),
-    Column('SPR', String),
-    Column('SIUP', String),
-    Column('Note1', String),
-    Column('Note2', String),
-    Column('CorAdd1', String),
-    Column('CorAdd2', String),
-    Column('CorAdd3', String),
-    Column('CorAdd4', String),
-    Column('CorCityID', String),
-    Column('CorCountryID', String),
-    Column('CorZipCode', String),
-    Column('CorPhone1', String),
-    Column('CorPhone2', String),
-    Column('CorFax1', String),
-    Column('CorFax2', String),
-    Column('CorEmail', String),
-    Column('CorContact1', String),
-    Column('CorContact2', String),
-    Column('Active', String),
-    Column('UserID', String)
-)
+class T_Customer(Base):
+    __tablename__ = 'Customer'
+    PartnerID = Column(String, primary_key=True)
+    PartnerName = Column(String)
+    Ident = Column(String)
+    OrgType = Column(String)
+    Address1 = Column(String)
+    Address2 = Column(String)
+    Address3 = Column(String)
+    Address4 = Column(String)
+    CityID = Column(String)
+    CountryID = Column(String)
+    ZipCode = Column(String)
+    Phone1 = Column(String)
+    Phone2 = Column(String)
+    Fax1 = Column(String)
+    Fax2 = Column(String)
+    Email = Column(String)
+    Contact1 = Column(String)
+    Contact2 = Column(String)
+    NPWP = Column(String)
+    NPWPdate = Column(DateTime)
+    NPWPKukuh = Column(String)
+    NPWPdateKukuh = Column(DateTime)
+    NPWP1 = Column(String)
+    NPWPdate1 = Column(DateTime)
+    NPWPKukuh1 = Column(String)
+    NPWPdateKukuh1 = Column(DateTime)
+    APITU = Column(String)
+    SPR = Column(String)
+    SIUP = Column(String)
+    Note1 = Column(String)
+    Note2 = Column(String)
+    CorAdd1 = Column(String)
+    CorAdd2 = Column(String)
+    CorAdd3 = Column(String)
+    CorAdd4 = Column(String)
+    CorCityID = Column(String)
+    CorCountryID = Column(String)
+    CorZipCode = Column(String)
+    CorPhone1 = Column(String)
+    CorPhone2 = Column(String)
+    CorFax1 = Column(String)
+    CorFax2 = Column(String)
+    CorEmail = Column(String)
+    CorContact1 = Column(String)
+    CorContact2 = Column(String)
+    Active = Column(String)
+    UserID = Column(String)
 
 # TODO: cari, ngga ada di db access
-t_DType = Table(
-    'DType', metadata,
-    Column('DType', String),
-    Column('Name', String),
-    Column('CorVoucherType', String),
-    Column('Modul', String),
-    Column('HeadDC', String),
-    Column('FoGroup', String)
-)
-
-
-t_DailyTranJob = Table(
-    'DailyTranJob', metadata,
-    Column('ProductID', String),
-    Column('name', String),
-    Column('account', String),
-    Column('GroupProdID', String),
-    Column('AssetKind', String),
-    Column('inv', Boolean),
-    Column('Emod', Boolean),
-    Column('Mmod', Boolean),
-    Column('Amod', Boolean)
-)
-
-
-t_Department = Table(
-    'Department', metadata,
-    Column('DepartmentID', String),
-    Column('DepartmentName', String),
-    Column('DepartmentHead', String),
-    Column('OffCode', String)
-)
-
-
-t_DetDemPeriod = Table(
-    'DetDemPeriod', metadata,
-    Column('DD_Period_ID_VC', String),
-    Column('DD_Start_Day_SI', Integer),
-    Column('DD_End_Day_SI', Integer),
-    Column('DD_Desc_VC', String)
-)
-
-
-t_Division = Table(
-    'Division', metadata,
-    Column('OffCode', String),
-    Column('DivID', String),
-    Column('DivName', String)
-)
-
-
-t_Forex = Table(
-    'Forex', metadata,
-    Column('ForexID', String),
-    Column('ForexCode', String),
-    Column('ForexDesc', String),
-    Column('ForexCountryID', String)
-)
-
-
-t_GetDatetime = Table(
-    'GetDatetime', metadata,
-    Column('OffCode', String),
-    Column('UserID', String),
-    Column('datedaytime', DateTime)
-)
-
-t_gLen = Table(
-    'gLen', metadata,
-    Column('gNumber', String),
-    Column('gLenThing', Integer),
-    Column('gLenVoucher', Integer),
-    Column('gLenOffCode', Integer),
-    Column('gLenCounter', Integer),
-    Column('gLenTranID', Integer),
-    Column('gMCounter', Integer),
-    Column('gLenAccount', Integer)
-)
-
-
-t_InvDesc = Table(
-    'InvDesc', metadata,
-    Column('OffCode', String),
-    Column('InvID', String),
-    Column('JobKind', String),
-    Column('InvType', String),
-    Column('Account', String),
-    Column('Tax', String),
-    Column('Tax1', String),
-    Column('InvDesc', String)
-)
-
-
-t_Item = Table(
-    'Item', metadata,
-    Column('OffCode', String),
-    Column('itemID', String),
-    Column('InvID', String),
-    Column('ItemDesc', String),
-    Column('GroupItem', String),
-    Column('Account', String),
-    Column('Cur', String),
-    Column('HrgStd', Integer)
-)
-
-
-t_JobKind = Table(
-    'JobKind', metadata,
-    Column('OffCode', String),
-    Column('JobKind', String),
-    Column('JobName', String),
-    Column('DivID', String)
-)
-
-
-t_JobOrder = Table(
-    'JobOrder', metadata,
-    Column('OffCode', String),
-    Column('JobID', String),
-    Column('JobKind', String),
-    Column('DateDay', DateTime),
-    Column('Ident', String),
-    Column('PartnerID', String),
-    Column('PartnerName', String),
-    Column('Descript', String),
-    Column('CustomerName', String),
-    Column('Weight', String),
-    Column('Measurement', String),
-    Column('Utility', String),
-    Column('Dishpack', String),
-    Column('Clothing', String),
-    Column('Glass', String),
-    Column('Furniture', String),
-    Column('Comment', String),
-    Column('AllPacker', String),
-    Column('Packer', String),
-    Column('Freelance', String),
-    Column('ElfBox', String),
-    Column('ElfBak', String),
-    Column('LooseBak', String),
-    Column('L300Box', String),
-    Column('PickUp', String),
-    Column('Panther', String),
-    Column('LCLshipment', String),
-    Column('WoodenLiftvan', String),
-    Column('CartonLiftvan', String),
-    Column('FCLshipment', String),
-    Column('FCL20', String),
-    Column('FCL40', String),
-    Column('LoosePack', String),
-    Column('Liftvan', String),
-    Column('Departure', String),
-    Column('PaymentType', String),
-    Column('AddPay', String),
-    Column('OrderByName', String),
-    Column('OrderByDate', String),
-    Column('CargoDivName', String),
-    Column('CargoDivDate', String),
-    Column('MPdivName', String),
-    Column('MPdivDate', String),
-    Column('Remark', String),
-    Column('DateUpdate', DateTime),
-    Column('active', String)
-)
-
-
-t_JobOrderX = Table(
-    'JobOrderX', metadata,
-    Column('OffCode', String),
-    Column('JobID', String),
-    Column('JobKind', String),
-    Column('DateDay', DateTime),
-    Column('Ident', String),
-    Column('PartnerID', String),
-    Column('PartnerName', String),
-    Column('KindOfWork', String),
-    Column('ShipConsignee', String),
-    Column('NameOfGood', String),
-    Column('CustomerRef', String),
-    Column('LoadPort', String),
-    Column('DischargePort', String),
-    Column('VesselFlight', String),
-    Column('ETA', DateTime),
-    Column('ETD', DateTime),
-    Column('ClearanceDate', DateTime),
-    Column('DeliveryDate', DateTime),
-    Column('BlAwbM', String),
-    Column('BlAwbH', String),
-    Column('Service', String),
-    Column('ContSize', String),
-    Column('ContainerNo', String),
-    Column('QofGood', Integer),
-    Column('Weight', Integer),
-    Column('Measurement', String),
-    Column('ShippingName', String),
-    Column('WarehouseName', String),
-    Column('TypeOfService', String),
-    Column('EPTEBc23Peb30Date', DateTime),
-    Column('PTBc23Peb30', String),
-    Column('PTPE', String),
-    Column('PTInvoice', String),
-    Column('PTPacking', String),
-    Column('PTBlAwbAsli', String),
-    Column('PTAsuransi', String),
-    Column('PTSK', String),
-    Column('PTKonlak', String),
-    Column('PTSSBP', String),
-    Column('GCPib20Peb30', String),
-    Column('GCPE', String),
-    Column('GCInvoice', String),
-    Column('GCPacking', String),
-    Column('GCBlAwbAsli', String),
-    Column('GCSK', String),
-    Column('GCSTTJ', String),
-    Column('GCIzinDep', String),
-    Column('GCCIS', String),
-    Column('GCIP', String),
-    Column('GCMaster', String),
-    Column('GCNPIK', String),
-    Column('GCSKBPPN', String),
-    Column('GCAsuransi', String),
-    Column('GCSSPCP', String),
-    Column('Driver', String),
-    Column('Truck', String),
-    Column('Condition', String),
-    Column('Remark', String),
-    Column('active', String)
-)
-
-
-t_MaterialType = Table(
-    'MaterialType', metadata,
-    Column('MateID', String),
-    Column('MateDesc', String)
-)
-
-
-t_Menu = Table(
-    'Menu', metadata,
-    Column('OffCode', String),
-    Column('MenuId', String),
-    Column('Name', String),
-    Column('FrmName', String),
-    Column('Remark', String),
-    Column('UserUse', Boolean)
-)
-
-
-t_Merk = Table(
-    'Merk', metadata,
-    Column('MerkID', String),
-    Column('Name', String),
-    Column('Descript', String),
-    Column('GroupMerk', String)
-)
-
-
-t_Paste_Errors = Table(
-    'Paste Errors', metadata,
-    Column('Field0', String) #TODO: DI DB TIPENYA LONG TEXT
-)
-
-
-t_PaySalesTran = Table(
-    'PaySalesTran', metadata,
-    Column('PayID', String),
-    Column('PayKindID', String),
-    Column('PayDesc', String),
-    Column('Account', String),
-    Column('CostType', String),
-    Column('Cost', Integer),
-    Column('CostAccount', String),
-    Column('Mark', String),
-    Column('Active', String)
-)
-
-
-t_PaymentVoucher = Table(
-    'PaymentVoucher', metadata,
-    Column('VoucherID', String),
-    Column('NoDet', Integer),
-    Column('PayID', String),
-    Column('IdentityNo', String),
-    Column('IdentityName', String),
-    Column('Amount', Integer),
-    Column('OtherAmount', Integer),
-    Column('Cost', Integer),
-    Column('TotalPay', Integer),
-    Column('BalanceD', Integer)
-)
-
-
-t_PeriodACC = Table(
-    'PeriodACC', metadata,
-    Column('PeriodID', String),
-    Column('PeriodName', String),
-    Column('StartDate', DateTime),
-    Column('EndDate', DateTime),
-    Column('YearPeriod', String),
-    Column('CloseStat', String),
-    Column('CloseDate', DateTime),
-    Column('UserID', String),
-    Column('UserIDClose', String)
-)
-
-
-t_PeriodFO = Table(
-    'PeriodFO', metadata,
-    Column('OffCode', String),
-    Column('PeriodID', String),
-    Column('PeriodDate', DateTime)
-)
-
-
-t_Port = Table(
-    'Port', metadata,
-    Column('PortCode_CH', String),
-    Column('PortName_CH', String),
-    Column('PortType_CH', String),
-    Column('PortTrade_CH', String),
-    Column('PortRate_NU', Integer),
-    Column('PortCountry_CH', String),
-    Column('CityID_CH', String),
-    Column('LocKind', String)
-)
-
-
-t_PrincipalMain = Table(
-    'PrincipalMain', metadata,
-    Column('Prin_Code_CH', String),
-    Column('Prin_Name_CH', String),
-    Column('Prin_Name1_CH', String),
-    Column('Prin_Address1_CH', String),
-    Column('Prin_Address2_CH', String),
-    Column('Prin_Address3_CH', String),
-    Column('Prin_Address4_CH', String),
-    Column('Prin_Address5_CH', String),
-    Column('Prin_City_CH', String),
-    Column('Prin_Country_CH', String),
-    Column('Prin_Zip_CH', String),
-    Column('Prin_Phone_CH', String),
-    Column('Prin_Fax_CH', String),
-    Column('Prin_Email_CH', String),
-    Column('Prin_Type_CH', String),
-    Column('Prin_Inactive_BT', Boolean),
-    Column('Prin_UserID_CH', String),
-    Column('Prin_BL_Code_CH', String),
-    Column('Prin_KtrAs_CH', String)
-)
-
-
-t_ProductBuy = Table(
-    'ProductBuy', metadata,
-    Column('ProductID', String),
-    Column('name', String),
-    Column('account', String),
-    Column('UnitPrice', Integer),
-    Column('GroupProdID', String),
-    Column('AssetKind', String),
-    Column('inv', String),
-    Column('Emod', String),
-    Column('Mmod', String),
-    Column('Amod', String)
-)
-
-
-t_ProductSale = Table(
-    'ProductSale', metadata,
-    Column('ProductID', String),
-    Column('name', String),
-    Column('account', String),
-    Column('Cur', String),
-    Column('UnitPrice', Integer),
-    Column('GroupProdID', String),
-    Column('AssetKind', String),
-    Column('inv', String),
-    Column('Emod', String),
-    Column('Mmod', String),
-    Column('Amod', String)
-)
-
-
-t_Rate = Table(
-    'Rate', metadata,
-    Column('Cur1', String),
-    Column('Cur2', String),
-    Column('RateAmount', Integer)
-)
-
-
-t_SaleVou_D = Table(
-    'SaleVou_D', metadata,
-    Column('VoucherID', String),
-    Column('NoDet', Integer),
-    Column('DType', String),
-    Column('Account', String),
-    Column('DivID', String),
-    Column('Tax', String),
-    Column('Tax1', String),
-    Column('RefVou', String),
-    Column('RefNO', Integer),
-    Column('RefMainDoc', String),
-    Column('RefPreDoc', String),
-    Column('RefDetailDoc', String),
-    Column('RefOthDoc', String),
-    Column('TranDocD', String),
-    Column('RefD1', String),
-    Column('RefD2', String),
-    Column('ThingType', String),
-    Column('ThingID', String),
-    Column('SerialID', String),
-    Column('Descript', String),
-    Column('Qty', Integer),
-    Column('UnitID', String),
-    Column('UnitPrice', Integer),
-    Column('DiscAmount', Integer),
-    Column('RefCur', String),
-    Column('RefAmount', Integer),
-    Column('Rate', Integer),
-    Column('AmountD', Integer),
-    Column('BalanceD', Integer),
-    Column('TaxAmount', Integer),
-    Column('TaxAmount1', Integer),
-    Column('OthCost', Integer)
-)
-
-
-t_SaleVou_H = Table(
-    'SaleVou_H', metadata,
-    Column('VoucherID', String),
-    Column('Account', String),
-    Column('Cur', String),
-    Column('DateDay', DateTime),
-    Column('DateDue', DateTime),
-    Column('TType', String),
-    Column('PartnerName', String),
-    Column('PartnerID', String),
-    Column('Receiver', String),
-    Column('MainDoc', String),
-    Column('PreDoc', String),
-    Column('DetailDoc', String),
-    Column('OthDoc', String),
-    Column('TranDoc', String),
-    Column('Ref1', String),
-    Column('Ref2', String),
-    Column('TotalDiscount', Integer),
-    Column('TotalTax', Integer),
-    Column('TotalTax1', Integer),
-    Column('SubTotal', Integer),
-    Column('GrandTotal', Integer),
-    Column('BalanceH', Integer),
-    Column('TotalAdj', Integer),
-    Column('TotalCost', Integer),
-    Column('Journal', String),
-    Column('RateJou', Integer),
-    Column('Paid', String),
-    Column('HeadJou', String),
-    Column('UserID', String),
-    Column('DateEntry', DateTime),
-    Column('DateUpdate', DateTime),
-    Column('UserLock', String),
-    Column('AddDesc', String)
-)
-
-
-t_Sales = Table(
-    'Sales', metadata,
-    Column('OffCode', String),
-    Column('SalesId', String),
-    Column('Name', String),
-    Column('Comm', Integer),
-    Column('Active', String)
-)
-
-
-t_SetupSystem = Table(
-    'SetupSystem', metadata,
-    Column('OffCode', String),
-    Column('Address1', String),
-    Column('Address2', String),
-    Column('Address3', String),
-    Column('NPWP', String),
-    Column('NPWPDate', String),
-    Column('NPWPKukuh', String),
-    Column('NPWPDateKukuh', String),
-    Column('AccSubgroupPL', String),
-    Column('AccountPLDitahan', String),
-    Column('AccountPLBerJalan', String),
-    Column('InvoiceName', String),
-    Column('Tax1Name', String),
-    Column('Tax1Title', String),
-    Column('Name1', String),
-    Column('Name2', String),
-    Column('Name3', String),
-    Column('TaxStd', String),
-    Column('TaxSdn', String),
-    Column('ARTaxAccount', String),
-    Column('ARTax1Account', String),
-    Column('SelisihAcckurs', String),
-    Column('DiscountAcc', String),
-    Column('userlock', String)
-)
-
-
-t_Supplier = Table(
-    'Supplier', metadata,
-    Column('PartnerID', String),
-    Column('PartnerName', String),
-    Column('Address1', String),
-    Column('Address2', String),
-    Column('Address3', String),
-    Column('Address4', String),
-    Column('CityID', String),
-    Column('CountryID', String),
-    Column('ZipCode', String),
-    Column('Phone1', String),
-    Column('Phone2', String),
-    Column('Fax1', String),
-    Column('Fax2', String),
-    Column('Email', String),
-    Column('Contact1', String),
-    Column('Contact2', String),
-    Column('NPWP', String),
-    Column('NPWPdate', DateTime),
-    Column('NPWPdateKukuh', DateTime),
-    Column('Note1', String),
-    Column('Note2', String),
-    Column('CorAdd1', String),
-    Column('CorAdd2', String),
-    Column('CorAdd3', String),
-    Column('CorAdd4', String),
-    Column('CorCityID', String),
-    Column('CorCountryID', String),
-    Column('CorZipCode', String),
-    Column('CorPhone1', String),
-    Column('CorPhone2', String),
-    Column('CorFax1', String),
-    Column('CorFax2', String),
-    Column('CorEmail', String),
-    Column('CorContact1', String),
-    Column('CorContact2', String),
-    Column('Inactive', Boolean),
-    Column('UserID', String)
-)
-
-
-t_Tax = Table(
-    'Tax', metadata,
-    Column('TaxID', String),
-    Column('Name', String),
-    Column('Amount', Integer)
-)
-
-
-t_TranMain = Table(
-    'TranMain', metadata,
-    Column('TranMain', String),
-    Column('CompanyID', String),
-    Column('BranchID', String),
-    Column('DepartmentID', String)
-)
-
-
-t_TranType = Table(
-    'TranType', metadata,
-    Column('TType', String),
-    Column('Name', String),
-    Column('CorVoucherType', String),
-    Column('Modul', String),
-    Column('HeadDC', String),
-    Column('FoGroup', Boolean)
-)
-
-
-t_Unit = Table(
-    'Unit', metadata,
-    Column('UnitID', String),
-    Column('Name', String)
-)
-
-
-t_UserGroupMain = Table(
-    'UserGroupMain', metadata,
-    Column('OffCode', String),
-    Column('UserGroupId', String),
-    Column('UserGroupName', String),
-    Column('Modul', String)
-)
-
-
-t_UserGroupMenuButton = Table(
-    'UserGroupMenuButton', metadata,
-    Column('OffCode', String),
-    Column('UserGroupId', String),
-    Column('MenuId', String),
-    Column('UserGroupName', String),
-    Column('bOpen', String),
-    Column('bAdd', String),
-    Column('bEdit', String),
-    Column('bDelete', String),
-    Column('bPrint', String)
-)
-
-
-t_UserMain = Table(
-    'UserMain', metadata,
-    Column('OffCode', String),
-    Column('UserId', String),
-    Column('UserGroupId', String),
-    Column('UserName', String),
-    Column('UserRank', Integer),
-    Column('UserLogon', Boolean),
-    Column('UserLastLogon', DateTime),
-    Column('UserSpecial', Boolean),
-    Column('UserPassword', String),
-    Column('DeptID', String),
-    Column('UserDateInp', DateTime),
-    Column('UserIDInp', String),
-    Column('Active', String)
-)
-
-
-t_Vendor = Table(
-    'Vendor', metadata,
-    Column('PartnerID', String),
-    Column('PartnerName', String),
-    Column('Ident', String),
-    Column('OrgType', String),
-    Column('Customer', String),
-    Column('Vendor', String),
-    Column('Principal', String),
-    Column('Address1', String),
-    Column('Address2', String),
-    Column('Address3', String),
-    Column('Address4', String),
-    Column('CityID', String),
-    Column('CountryID', String),
-    Column('ZipCode', String),
-    Column('Phone1', String),
-    Column('Phone2', String),
-    Column('Fax1', String),
-    Column('Fax2', String),
-    Column('Email', String),
-    Column('Contact1', String),
-    Column('Contact2', String),
-    Column('NPWP', String),
-    Column('NPWPdate', DateTime),
-    Column('NPWPKukuh', String),
-    Column('NPWPdateKukuh', DateTime),
-    Column('NPWP1', String),
-    Column('NPWPdate1', DateTime),
-    Column('NPWPKukuh1', String),
-    Column('NPWPdateKukuh1', DateTime),
-    Column('APITU', String),
-    Column('SPR', String),
-    Column('SIUP', String),
-    Column('Note1', String),
-    Column('Note2', String),
-    Column('CorAdd1', String),
-    Column('CorAdd2', String),
-    Column('CorAdd3', String),
-    Column('CorAdd4', String),
-    Column('CorCityID', String),
-    Column('CorCountryID', String),
-    Column('CorZipCode', String),
-    Column('CorPhone1', String),
-    Column('CorPhone2', String),
-    Column('CorFax1', String),
-    Column('CorFax2', String),
-    Column('CorEmail', String),
-    Column('CorContact1', String),
-    Column('CorContact2', String),
-    Column('Active', String),
-    Column('UserID', String)
-)
+
+
+class T_DType(Base):
+    __tablename__ = 'DType'
+    DType = Column(String, primary_key=True)
+    Name = Column(String)
+    CorVoucherType = Column(String)
+    Modul = Column(String)
+    HeadDC = Column(String)
+    FoGroup = Column(String)
+
+
+class T_DailyTranJob(Base):
+    __tablename__ = 'DailyTranJob'
+    ProductID = Column(String, primary_key=True)
+    name = Column(String)
+    account = Column(String)
+    GroupProdID = Column(String)
+    AssetKind = Column(String)
+    inv = Column(Boolean)
+    Emod = Column(Boolean)
+    Mmod = Column(Boolean)
+    Amod = Column(Boolean)
+
+
+class T_Department(Base):
+    __tablename__ = 'Department'
+    DepartmentID = Column(String, primary_key=True)
+    DepartmentName = Column(String)
+    DepartmentHead = Column(String)
+    OffCode = Column(String)
+
+
+class T_DetDemPeriod(Base):
+    __tablename__ = 'DetDemPeriod'
+    DD_Period_ID_VC = Column(String, primary_key=True)
+    DD_Start_Day_SI = Column(Integer)
+    DD_End_Day_SI = Column(Integer)
+    DD_Desc_VC = Column(String)
+
+
+class T_Division(Base):
+    __tablename__ = 'Division'
+    OffCode = Column(String, primary_key=True)
+    DivID = Column(String)
+    DivName = Column(String)
+
+
+class T_Forex(Base):
+    __tablename__ = 'Forex'
+    ForexID = Column(String, primary_key=True)
+    ForexCode = Column(String)
+    ForexDesc = Column(String)
+    ForexCountryID = Column(String)
+
+
+class T_GetDatetime(Base):
+    __tablename__ = 'GetDatetime'
+    OffCode = Column(String, primary_key=True)
+    UserID = Column(String)
+    datedaytime = Column(DateTime)
+
+
+class T_gLen(Base):
+    __tablename__ = 'gLen'
+    gNumber = Column(String, primary_key=True)
+    gLenThing = Column(Integer)
+    gLenVoucher = Column(Integer)
+    gLenOffCode = Column(Integer)
+    gLenCounter = Column(Integer)
+    gLenTranID = Column(Integer)
+    gMCounter = Column(Integer)
+    gLenAccount = Column(Integer)
+
+
+class T_InvDesc(Base):
+    __tablename__ = 'InvDesc'
+    OffCode = Column(String, primary_key=True)
+    InvID = Column(String)
+    JobKind = Column(String)
+    InvType = Column(String)
+    Account = Column(String)
+    Tax = Column(String)
+    Tax1 = Column(String)
+    InvDesc = Column(String)
+
+
+class T_Item(Base):
+    __tablename__ = 'Item'
+    OffCode = Column(String, primary_key=True)
+    itemID = Column(String)
+    InvID = Column(String)
+    ItemDesc = Column(String)
+    GroupItem = Column(String)
+    Account = Column(String)
+    Cur = Column(String)
+    HrgStd = Column(Integer)
+
+
+class T_JobKind(Base):
+    __tablename__ = 'JobKind'
+    OffCode = Column(String, primary_key=True)
+    JobKind = Column(String)
+    JobName = Column(String)
+    DivID = Column(String)
+
+
+class T_JobOrder(Base):
+    __tablename__ = 'JobOrder'
+    OffCode = Column(String, primary_key=True)
+    JobID = Column(String)
+    JobKind = Column(String)
+    DateDay = Column(DateTime)
+    Ident = Column(String)
+    PartnerID = Column(String)
+    PartnerName = Column(String)
+    Descript = Column(String)
+    CustomerName = Column(String)
+    Weight = Column(String)
+    Measurement = Column(String)
+    Utility = Column(String)
+    Dishpack = Column(String)
+    Clothing = Column(String)
+    Glass = Column(String)
+    Furniture = Column(String)
+    Comment = Column(String)
+    AllPacker = Column(String)
+    Packer = Column(String)
+    Freelance = Column(String)
+    ElfBox = Column(String)
+    ElfBak = Column(String)
+    LooseBak = Column(String)
+    L300Box = Column(String)
+    PickUp = Column(String)
+    Panther = Column(String)
+    LCLshipment = Column(String)
+    WoodenLiftvan = Column(String)
+    CartonLiftvan = Column(String)
+    FCLshipment = Column(String)
+    FCL20 = Column(String)
+    FCL40 = Column(String)
+    LoosePack = Column(String)
+    Liftvan = Column(String)
+    Departure = Column(String)
+    PaymentType = Column(String)
+    AddPay = Column(String)
+    OrderByName = Column(String)
+    OrderByDate = Column(String)
+    CargoDivName = Column(String)
+    CargoDivDate = Column(String)
+    MPdivName = Column(String)
+    MPdivDate = Column(String)
+    Remark = Column(String)
+    DateUpdate = Column(DateTime)
+    active = Column(String)
+
+
+class T_JobOrderX(Base):
+    __tablename__ = 'JobOrderX'
+    OffCode = Column(String, primary_key=True)
+    JobID = Column(String)
+    JobKind = Column(String)
+    DateDay = Column(DateTime)
+    Ident = Column(String)
+    PartnerID = Column(String)
+    PartnerName = Column(String)
+    KindOfWork = Column(String)
+    ShipConsignee = Column(String)
+    NameOfGood = Column(String)
+    CustomerRef = Column(String)
+    LoadPort = Column(String)
+    DischargePort = Column(String)
+    VesselFlight = Column(String)
+    ETA = Column(DateTime)
+    ETD = Column(DateTime)
+    ClearanceDate = Column(DateTime)
+    DeliveryDate = Column(DateTime)
+    BlAwbM = Column(String)
+    BlAwbH = Column(String)
+    Service = Column(String)
+    ContSize = Column(String)
+    ContainerNo = Column(String)
+    QofGood = Column(Integer)
+    Weight = Column(Integer)
+    Measurement = Column(String)
+    ShippingName = Column(String)
+    WarehouseName = Column(String)
+    TypeOfService = Column(String)
+    EPTEBc23Peb30Date = Column(DateTime)
+    PTBc23Peb30 = Column(String)
+    PTPE = Column(String)
+    PTInvoice = Column(String)
+    PTPacking = Column(String)
+    PTBlAwbAsli = Column(String)
+    PTAsuransi = Column(String)
+    PTSK = Column(String)
+    PTKonlak = Column(String)
+    PTSSBP = Column(String)
+    GCPib20Peb30 = Column(String)
+    GCPE = Column(String)
+    GCInvoice = Column(String)
+    GCPacking = Column(String)
+    GCBlAwbAsli = Column(String)
+    GCSK = Column(String)
+    GCSTTJ = Column(String)
+    GCIzinDep = Column(String)
+    GCCIS = Column(String)
+    GCIP = Column(String)
+    GCMaster = Column(String)
+    GCNPIK = Column(String)
+    GCSKBPPN = Column(String)
+    GCAsuransi = Column(String)
+    GCSSPCP = Column(String)
+    Driver = Column(String)
+    Truck = Column(String)
+    Condition = Column(String)
+    Remark = Column(String)
+    active = Column(String)
+
+
+class T_MaterialType(Base):
+    __tablename__ = 'MaterialType'
+    MateID = Column(String, primary_key=True)
+    MateDesc = Column(String)
+
+
+class T_Menu(Base):
+    __tablename__ = 'Menu'
+    OffCode = Column(String, primary_key=True)
+    MenuId = Column(String)
+    Name = Column(String)
+    FrmName = Column(String)
+    Remark = Column(String)
+    UserUse = Column(Boolean)
+
+
+class T_Merk(Base):
+    __tablename__ = 'Merk'
+    MerkID = Column(String, primary_key=True)
+    Name = Column(String)
+    Descript = Column(String)
+    GroupMerk = Column(String)
+
+
+class T_Paste_Errors(Base):
+    __tablename__ = 'Paste Errors'
+    # TODO: DI DB TIPENYA LONG TEX, primary_key=TrueT
+    Field0 = Column(String, primary_key=True)
+
+
+class T_PaySalesTran(Base):
+    __tablename__ = 'PaySalesTran'
+    PayID = Column(String, primary_key=True)
+    PayKindID = Column(String)
+    PayDesc = Column(String)
+    Account = Column(String)
+    CostType = Column(String)
+    Cost = Column(Integer)
+    CostAccount = Column(String)
+    Mark = Column(String)
+    Active = Column(String)
+
+
+class T_PaymentVoucher(Base):
+    __tablename__ = 'PaymentVoucher'
+    VoucherID = Column(String, primary_key=True)
+    NoDet = Column(Integer)
+    PayID = Column(String)
+    IdentityNo = Column(String)
+    IdentityName = Column(String)
+    Amount = Column(Integer)
+    OtherAmount = Column(Integer)
+    Cost = Column(Integer)
+    TotalPay = Column(Integer)
+    BalanceD = Column(Integer)
+
+
+class T_PeriodACC(Base):
+    __tablename__ = 'PeriodACC'
+    PeriodID = Column(String, primary_key=True)
+    PeriodName = Column(String)
+    StartDate = Column(DateTime)
+    EndDate = Column(DateTime)
+    YearPeriod = Column(String)
+    CloseStat = Column(String)
+    CloseDate = Column(DateTime)
+    UserID = Column(String)
+    UserIDClose = Column(String)
+
+
+class T_PeriodFO(Base):
+    __tablename__ = 'PeriodFO'
+    OffCode = Column(String, primary_key=True)
+    PeriodID = Column(String)
+    PeriodDate = Column(DateTime)
+
+
+class T_Port(Base):
+    __tablename__ = 'Port'
+    PortCode_CH = Column(String, primary_key=True)
+    PortName_CH = Column(String)
+    PortType_CH = Column(String)
+    PortTrade_CH = Column(String)
+    PortRate_NU = Column(Integer)
+    PortCountry_CH = Column(String)
+    CityID_CH = Column(String)
+    LocKind = Column(String)
+
+
+class T_PrincipalMain(Base):
+    __tablename__ = 'PrincipalMain'
+    Prin_Code_CH = Column(String, primary_key=True)
+    Prin_Name_CH = Column(String)
+    Prin_Name1_CH = Column(String)
+    Prin_Address1_CH = Column(String)
+    Prin_Address2_CH = Column(String)
+    Prin_Address3_CH = Column(String)
+    Prin_Address4_CH = Column(String)
+    Prin_Address5_CH = Column(String)
+    Prin_City_CH = Column(String)
+    Prin_Country_CH = Column(String)
+    Prin_Zip_CH = Column(String)
+    Prin_Phone_CH = Column(String)
+    Prin_Fax_CH = Column(String)
+    Prin_Email_CH = Column(String)
+    Prin_Type_CH = Column(String)
+    Prin_Inactive_BT = Column(Boolean)
+    Prin_UserID_CH = Column(String)
+    Prin_BL_Code_CH = Column(String)
+    Prin_KtrAs_CH = Column(String)
+
+
+class T_ProductBuy(Base):
+    __tablename__ = 'ProductBuy'
+    ProductID = Column(String, primary_key=True)
+    name = Column(String)
+    account = Column(String)
+    UnitPrice = Column(Integer)
+    GroupProdID = Column(String)
+    AssetKind = Column(String)
+    inv = Column(String)
+    Emod = Column(String)
+    Mmod = Column(String)
+    Amod = Column(String)
+
+
+class T_ProductSale(Base):
+    __tablename__ = 'ProductSale'
+    ProductID = Column(String, primary_key=True)
+    name = Column(String)
+    account = Column(String)
+    Cur = Column(String)
+    UnitPrice = Column(Integer)
+    GroupProdID = Column(String)
+    AssetKind = Column(String)
+    inv = Column(String)
+    Emod = Column(String)
+    Mmod = Column(String)
+    Amod = Column(String)
+
+
+class T_Rate(Base):
+    __tablename__ = 'Rate'
+    Cur1 = Column(String, primary_key=True)
+    Cur2 = Column(String)
+    RateAmount = Column(Integer)
+
+
+class T_SaleVou_D(Base):
+    __tablename__ = 'SaleVou_D'
+    VoucherID = Column(String, primary_key=True)
+    NoDet = Column(Integer)
+    DType = Column(String)
+    Account = Column(String)
+    DivID = Column(String)
+    Tax = Column(String)
+    Tax1 = Column(String)
+    RefVou = Column(String)
+    RefNO = Column(Integer)
+    RefMainDoc = Column(String)
+    RefPreDoc = Column(String)
+    RefDetailDoc = Column(String)
+    RefOthDoc = Column(String)
+    TranDocD = Column(String)
+    RefD1 = Column(String)
+    RefD2 = Column(String)
+    ThingType = Column(String)
+    ThingID = Column(String)
+    SerialID = Column(String)
+    Descript = Column(String)
+    Qty = Column(Integer)
+    UnitID = Column(String)
+    UnitPrice = Column(Integer)
+    DiscAmount = Column(Integer)
+    RefCur = Column(String)
+    RefAmount = Column(Integer)
+    Rate = Column(Integer)
+    AmountD = Column(Integer)
+    BalanceD = Column(Integer)
+    TaxAmount = Column(Integer)
+    TaxAmount1 = Column(Integer)
+    OthCost = Column(Integer)
+
+
+class T_SaleVou_H(Base):
+    __tablename__ = 'SaleVou_H'
+    VoucherID = Column(String, primary_key=True)
+    Account = Column(String)
+    Cur = Column(String)
+    DateDay = Column(DateTime)
+    DateDue = Column(DateTime)
+    TType = Column(String)
+    PartnerName = Column(String)
+    PartnerID = Column(String)
+    Receiver = Column(String)
+    MainDoc = Column(String)
+    PreDoc = Column(String)
+    DetailDoc = Column(String)
+    OthDoc = Column(String)
+    TranDoc = Column(String)
+    Ref1 = Column(String)
+    Ref2 = Column(String)
+    TotalDiscount = Column(Integer)
+    TotalTax = Column(Integer)
+    TotalTax1 = Column(Integer)
+    SubTotal = Column(Integer)
+    GrandTotal = Column(Integer)
+    BalanceH = Column(Integer)
+    TotalAdj = Column(Integer)
+    TotalCost = Column(Integer)
+    Journal = Column(String)
+    RateJou = Column(Integer)
+    Paid = Column(String)
+    HeadJou = Column(String)
+    UserID = Column(String)
+    DateEntry = Column(DateTime)
+    DateUpdate = Column(DateTime)
+    UserLock = Column(String)
+    AddDesc = Column(String)
+
+
+class T_Sales(Base):
+    __tablename__ = 'Sales'
+    OffCode = Column(String, primary_key=True)
+    SalesId = Column(String)
+    Name = Column(String)
+    Comm = Column(Integer)
+    Active = Column(String)
+
+
+class T_SetupSystem(Base):
+    __tablename__ = 'SetupSystem'
+    OffCode = Column(String, primary_key=True)
+    Address1 = Column(String)
+    Address2 = Column(String)
+    Address3 = Column(String)
+    NPWP = Column(String)
+    NPWPDate = Column(String)
+    NPWPKukuh = Column(String)
+    NPWPDateKukuh = Column(String)
+    AccSubgroupPL = Column(String)
+    AccountPLDitahan = Column(String)
+    AccountPLBerJalan = Column(String)
+    InvoiceName = Column(String)
+    Tax1Name = Column(String)
+    Tax1Title = Column(String)
+    Name1 = Column(String)
+    Name2 = Column(String)
+    Name3 = Column(String)
+    TaxStd = Column(String)
+    TaxSdn = Column(String)
+    ARTaxAccount = Column(String)
+    ARTax1Account = Column(String)
+    SelisihAcckurs = Column(String)
+    DiscountAcc = Column(String)
+    userlock = Column(String)
+
+
+class T_Supplier(Base):
+    __tablename__ = 'Supplier'
+    PartnerID = Column(String, primary_key=True)
+    PartnerName = Column(String)
+    Address1 = Column(String)
+    Address2 = Column(String)
+    Address3 = Column(String)
+    Address4 = Column(String)
+    CityID = Column(String)
+    CountryID = Column(String)
+    ZipCode = Column(String)
+    Phone1 = Column(String)
+    Phone2 = Column(String)
+    Fax1 = Column(String)
+    Fax2 = Column(String)
+    Email = Column(String)
+    Contact1 = Column(String)
+    Contact2 = Column(String)
+    NPWP = Column(String)
+    NPWPdate = Column(DateTime)
+    NPWPdateKukuh = Column(DateTime)
+    Note1 = Column(String)
+    Note2 = Column(String)
+    CorAdd1 = Column(String)
+    CorAdd2 = Column(String)
+    CorAdd3 = Column(String)
+    CorAdd4 = Column(String)
+    CorCityID = Column(String)
+    CorCountryID = Column(String)
+    CorZipCode = Column(String)
+    CorPhone1 = Column(String)
+    CorPhone2 = Column(String)
+    CorFax1 = Column(String)
+    CorFax2 = Column(String)
+    CorEmail = Column(String)
+    CorContact1 = Column(String)
+    CorContact2 = Column(String)
+    Inactive = Column(Boolean)
+    UserID = Column(String)
+
+
+class T_Tax(Base):
+    __tablename__ = 'Tax'
+    TaxID = Column(String, primary_key=True)
+    Name = Column(String)
+    Amount = Column(Integer)
+
+
+class T_TranMain(Base):
+    __tablename__ = 'TranMain'
+    TranMain = Column(String, primary_key=True)
+    CompanyID = Column(String)
+    BranchID = Column(String)
+    DepartmentID = Column(String)
+
+
+class T_TranType(Base):
+    __tablename__ = 'TranType'
+    TType = Column(String, primary_key=True)
+    Name = Column(String)
+    CorVoucherType = Column(String)
+    Modul = Column(String)
+    HeadDC = Column(String)
+    FoGroup = Column(Boolean)
+
+
+class T_Unit(Base):
+    __tablename__ = 'Unit'
+    UnitID = Column(String, primary_key=True)
+    Name = Column(String)
+
+
+class T_UserGroupMain(Base):
+    __tablename__ = 'UserGroupMain'
+    OffCode = Column(String, primary_key=True)
+    UserGroupId = Column(String)
+    UserGroupName = Column(String)
+    Modul = Column(String)
+
+
+class T_UserGroupMenuButton(Base):
+    __tablename__ = 'UserGroupMenuButton'
+    OffCode = Column(String, primary_key=True)
+    UserGroupId = Column(String)
+    MenuId = Column(String)
+    UserGroupName = Column(String)
+    bOpen = Column(String)
+    bAdd = Column(String)
+    bEdit = Column(String)
+    bDelete = Column(String)
+    bPrint = Column(String)
+
+
+class T_UserMain(Base):
+    __tablename__ = 'UserMain'
+    OffCode = Column(String, primary_key=True)
+    UserId = Column(String)
+    UserGroupId = Column(String)
+    UserName = Column(String)
+    UserRank = Column(Integer)
+    UserLogon = Column(Boolean)
+    UserLastLogon = Column(DateTime)
+    UserSpecial = Column(Boolean)
+    UserPassword = Column(String)
+    DeptID = Column(String)
+    UserDateInp = Column(DateTime)
+    UserIDInp = Column(String)
+    Active = Column(String)
+
+
+class T_Vendor(Base):
+    __tablename__ = 'Vendor'
+    PartnerID = Column(String, primary_key=True)
+    PartnerName = Column(String)
+    Ident = Column(String)
+    OrgType = Column(String)
+    Customer = Column(String)
+    Vendor = Column(String)
+    Principal = Column(String)
+    Address1 = Column(String)
+    Address2 = Column(String)
+    Address3 = Column(String)
+    Address4 = Column(String)
+    CityID = Column(String)
+    CountryID = Column(String)
+    ZipCode = Column(String)
+    Phone1 = Column(String)
+    Phone2 = Column(String)
+    Fax1 = Column(String)
+    Fax2 = Column(String)
+    Email = Column(String)
+    Contact1 = Column(String)
+    Contact2 = Column(String)
+    NPWP = Column(String)
+    NPWPdate = Column(DateTime)
+    NPWPKukuh = Column(String)
+    NPWPdateKukuh = Column(DateTime)
+    NPWP1 = Column(String)
+    NPWPdate1 = Column(DateTime)
+    NPWPKukuh1 = Column(String)
+    NPWPdateKukuh1 = Column(DateTime)
+    APITU = Column(String)
+    SPR = Column(String)
+    SIUP = Column(String)
+    Note1 = Column(String)
+    Note2 = Column(String)
+    CorAdd1 = Column(String)
+    CorAdd2 = Column(String)
+    CorAdd3 = Column(String)
+    CorAdd4 = Column(String)
+    CorCityID = Column(String)
+    CorCountryID = Column(String)
+    CorZipCode = Column(String)
+    CorPhone1 = Column(String)
+    CorPhone2 = Column(String)
+    CorFax1 = Column(String)
+    CorFax2 = Column(String)
+    CorEmail = Column(String)
+    CorContact1 = Column(String)
+    CorContact2 = Column(String)
+    Active = Column(String)
+    UserID = Column(String)

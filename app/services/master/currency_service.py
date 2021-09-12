@@ -37,9 +37,11 @@ def edit_currency(db: Session, currency: Currency) -> Currency:
     edited_currency = get_currency_by_id(db, currency.CurrencyID)
     currency_new = T_Currency(**currency.dict())
 
+    edited_currency.Cur = currency_new.Cur
     edited_currency.Name = currency_new.Name
-    edited_currency.countryID = currency_new.countryID
-    edited_currency.locKind = currency_new.locKind
+    edited_currency.CountryID = currency_new.CountryID
+    edited_currency.Rate = currency_new.Rate
+    edited_currency.Mark = currency_new.Mark
 
     db.commit()
     db.refresh(edited_currency)

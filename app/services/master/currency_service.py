@@ -21,7 +21,7 @@ def search_currencies(db: Session, keyword: str):
 
 def get_currency_by_id(db: Session, currency_id):
     currency_by_id = db.query(T_Currency).filter(
-        T_Currency.CurrencyID == currency_id).first()
+        T_Currency.Cur == currency_id).first()
     return currency_by_id
 
 

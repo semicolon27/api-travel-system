@@ -624,8 +624,9 @@ class T_Country(Base):
     Name = Column(String)
 
 
-class T_Curency(Base):
-    __tablename__ = 'Curency'
+# ! di rename cari Curency ke Currency agar sesuai bahasa inggris
+class T_Currency(Base):
+    __tablename__ = 'Currency'
     Cur = Column(String, primary_key=True)
     Name = Column(String)
     CountryID = Column(String)

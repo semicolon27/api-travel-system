@@ -1,5 +1,7 @@
 [MASTER]
 
+good-names=i,j,df, db
+
 # A comma-separated list of package or module names from where C extensions may
 # be loaded. Extensions are loading into the active Python interpreter and may
 # run arbitrary code.
@@ -60,7 +62,8 @@ confidence=
 # --enable=similarities". If you want to run only the classes checker, but have
 # no Warning level messages displayed, use "--disable=all --enable=classes
 # --disable=W".
-disable=print-statement,
+disable=missing-function-docstring, invalid-name, wrong-import-order, 
+        print-statement,
         parameter-unpacking,
         unpacking-in-except,
         old-raise-syntax,

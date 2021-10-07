@@ -40,6 +40,12 @@ async def add_country(country: Country, db: session = Depends(get_db)):
     res.data = country_service.add_country(db, country)
     return res
 
+@router.post("/master/countries", response_model=Response[List[Country]], tags=["Country"])
+async def add_countries(country_list: List[Country], db: session = Depends(get_db)):
+    res = Response
+    res.data = country_service.add_countries(db, country_list)
+    return res
+
 
 @router.put("/master/country", response_model=Response[Country], tags=["Country"])
 async def edit_country(country: Country, db: session = Depends(get_db)):
@@ -48,8 +54,8 @@ async def edit_country(country: Country, db: session = Depends(get_db)):
     return res
 
 
-@router.delete("/master/country", response_model=Response[Country], tags=["Country"])
-async def delete_country(country: Country, db: session = Depends(get_db)):
+@router.delete("/master/country/{id}", response_model=Response[Country], tags=["Country"])
+async def delete_country(id, db: session = Depends(get_db)):
     res = Response
-    res.data = country_service.delete_country(db, country)
+    res.data = country_service.delete_country(db, id)
     return res

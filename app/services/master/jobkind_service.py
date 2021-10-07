@@ -52,3 +52,10 @@ def delete_jobkind(db: Session, jobkind: JobKind):
     db.delete(deleted_jobkind)
     db.commit()
     return deleted_jobkind
+
+"""
+frmmitem
+"select JobKind, jobName from Jobkind where offcode='" & gOffCode & "' and  left(jobname,'" & varlong & "') like '" & VarSelection & "' order by JobName"
+
+
+"""

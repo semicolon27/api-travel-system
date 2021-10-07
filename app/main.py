@@ -2,18 +2,41 @@ from fastapi import FastAPI, status
 from fastapi.encoders import jsonable_encoder
 from starlette.requests import Request
 from starlette.responses import Response, JSONResponse
-from app.schema.http_schema import Response as ResponseSchema
 import uvicorn
-from .models import db_models
-from .routers.master import product_router, city_router
-from .database import SessionLocal, engine
+from app.models import db_models
+from app.routers.master import product_router, city_router, category_router, country_router, currency_router, division_router, jobkind_router, office_router
+from app.database import SessionLocal, engine
 from fastapi.exceptions import RequestValidationError
 from starlette.exceptions import HTTPException as StarletteHTTPException
+from fastapi.middleware.cors import CORSMiddleware
 
 db_models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(debug=True, title="Travel System API")
 # app = FastAPI(debug=False, title="Travel System API", docs_url=None, redoc_url=None, openapi_url=None)
+
+origins = [
+    "http://localhost:8080",
+    "http://localhost:8081",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+app.include_router(product_router.router)
+app.include_router(city_router.router)
+app.include_router(category_router.router)
+app.include_router(country_router.router)
+app.include_router(currency_router.router)
+app.include_router(division_router.router)
+app.include_router(jobkind_router.router)
+app.include_router(office_router.router)
 
 
 @app.middleware("http")
@@ -29,7 +52,7 @@ async def db_session_middleware(request: Request, call_next):
 
 @app.exception_handler(StarletteHTTPException)
 async def http_exception_handler(_, exc):
-    print(exc.errors())
+    # print(exc.errors())
     res = {}
     res['rc'] = '999'
     res['msg'] = "Error"
@@ -54,10 +77,6 @@ async def validation_exception_handler(_, exc):
         status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
         content=res,
     )
-
-
-app.include_router(product_router.router)
-app.include_router(city_router.router)
 
 if __name__ == '__main__':
     uvicorn.run("main:app",

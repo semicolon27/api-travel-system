@@ -5,6 +5,7 @@ from app.schema.master.country_schema import Country
 from app.models.db_models import T_Country
 from sqlalchemy.orm import Session
 from sqlalchemy import desc
+from typing import List
 
 
 def get_countries(db: Session):
@@ -29,8 +30,17 @@ def add_country(db: Session, country: Country):
     db_country = T_Country(**country.dict())
     db.add(db_country)
     db.commit()
-    db.refresh(db_country)
     return db_country
+
+def add_countries(db: Session, country_list: List[Country]):
+    try:
+        for country in country_list:
+            db_country = T_Country(**country.dict())
+            db.add(db_country)
+        db.commit()
+    except Exception as e:
+        db.rollback()
+    return country_list
 
 
 def edit_country(db: Session, country: Country) -> Country:
@@ -46,8 +56,8 @@ def edit_country(db: Session, country: Country) -> Country:
     return country
 
 
-def delete_country(db: Session, country: Country):
-    deleted_country = get_country_by_id(db, country.CountryID)
+def delete_country(db: Session, country_id: str):
+    deleted_country = get_country_by_id(db, country_id)
     db.delete(deleted_country)
     db.commit()
     return deleted_country
